@@ -7,6 +7,13 @@ Crie a corrente de descontos. A partir da interface Desconto, implemente as segu
 
 ## Teste Unitários
 Clone o repositório para sua máquina.
+E execute os comandos para ver o funcionamento das implementações.
 
-Execute:
- `./vendor/bin/phpunit tests`
+Item:
+ `./vendor/bin/phpunit tests/ItemTest.php`
+ 
+Orçamento: 
+`./vendor/bin/phpunit tests/OrcamentoTest.php`
+
+Desconto: 
+`./vendor/bin/phpunit tests/DescontoTest.php`
