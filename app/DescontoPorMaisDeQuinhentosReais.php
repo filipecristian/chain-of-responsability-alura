@@ -3,10 +3,10 @@
 namespace App;
 
 /**
- * Class Desconto500Reais
+ * Class DescontoPorMaisDeQuinhentosReais
  * @package App
  */
-class Desconto500Reais implements IDesconto
+class DescontoPorMaisDeQuinhentosReais implements IDesconto
 {
     /**
      * @var IDesconto

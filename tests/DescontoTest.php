@@ -1,7 +1,7 @@
 <?php
 
 
-use App\Desconto500Reais;
+use App\DescontoPorMaisDeQuinhentosReais;
 use App\Desconto5Itens;
 use App\Item;
 use App\Orcamento;
@@ -21,7 +21,7 @@ class DescontoTest extends TestCase
         $orcamento->addItem(new Item('10kg de Cimento', 500));
 
         $desconto5Itens = new Desconto5Itens();
-        $desconto500Reias = new Desconto500Reais();
+        $desconto500Reias = new DescontoPorMaisDeQuinhentosReais();
 
         $desconto5Itens->setProximo($desconto500Reias);
 
@@ -30,13 +30,13 @@ class DescontoTest extends TestCase
         $this->assertEquals(300.00, $desconto);
     }
 
-    public function testDesconto500Reais()
+    public function testDescontoPorMaisDeQuinhentosReais()
     {
         $orcamento = new Orcamento(600);
         $orcamento->addItem(new Item('15kg de Areia', 600));
 
         $desconto5Itens = new Desconto5Itens();
-        $desconto500Reias = new Desconto500Reais();
+        $desconto500Reias = new DescontoPorMaisDeQuinhentosReais();
 
         $desconto5Itens->setProximo($desconto500Reias);
 
@@ -51,7 +51,7 @@ class DescontoTest extends TestCase
         $orcamento->addItem(new Item('Saco de Cimento', 25));
 
         $desconto5Itens = new Desconto5Itens();
-        $desconto500Reias = new Desconto500Reais();
+        $desconto500Reias = new DescontoPorMaisDeQuinhentosReais();
         $semDesconto = new SemDesconto();
 
         $desconto5Itens->setProximo($desconto500Reias);
