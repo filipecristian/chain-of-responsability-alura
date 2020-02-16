@@ -3,6 +3,7 @@
 
 use App\DescontoPorMaisDeQuinhentosReais;
 use App\Desconto5Itens;
+use App\DescontoPorVendaCasada;
 use App\Item;
 use App\Orcamento;
 use App\SemDesconto;
@@ -60,5 +61,25 @@ class DescontoTest extends TestCase
         $desconto = $desconto5Itens->desconta($orcamento);
 
         $this->assertEquals(0.00, $desconto);
+    }
+
+    public function testDescontoPorVendaCasada()
+    {
+        $orcamento = new Orcamento(10);
+        $orcamento->addItem(new Item('Lapis', 5));
+        $orcamento->addItem(new Item('Caneta', 5));
+
+        $desconto5Itens = new Desconto5Itens();
+        $desconto500Reias = new DescontoPorMaisDeQuinhentosReais();
+        $descontoPorVendaCasada = new DescontoPorVendaCasada();
+        $semDesconto = new SemDesconto();
+
+        $desconto5Itens->setProximo($desconto500Reias);
+        $desconto500Reias->setProximo($descontoPorVendaCasada);
+        $descontoPorVendaCasada->setProximo($semDesconto);
+
+        $desconto = $desconto5Itens->desconta($orcamento);
+
+        $this->assertEquals(0.5, $desconto);
     }
 }
